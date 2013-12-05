@@ -265,7 +265,7 @@ window.FileLoader = (function() {
 				
 				if(archive.isLoaded) {
 					// Archive already loaded : immediately calling function
-					onLoadCallBack(this);
+					onLoadCallBack.call(this);
 				} else {
 					// Archive is loading : adding function to stack
 					archive.onLoadCallBacks.push(onLoadCallBack);
