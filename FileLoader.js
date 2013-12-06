@@ -293,14 +293,10 @@ window.FileLoader = (function() {
 				archives[absoluteFileName].files,
 				filter || /.*\.js$/,
 				function(file) {
-					if(!file.hasAlreadyBeenImportedAsJS) {
 						var script = document.createElement("script");
-						script.setAttribute("type", "text/javascript");
-						script.setAttribute("async", false);
-						
-						var url = JSDebugUrlTransformer == null ? fileToBlobURL(file, "text/javascript") : JSDebugUrlTransformer(file.name);
-						script.setAttribute("src", url);
-						
+						script.type = "text/javascript";
+						script.async = false;
+						script.src = JSDebugUrlTransformer == null ? fileToBlobURL(file, "text/javascript") : JSDebugUrlTransformer(file.name);
 						document.head.appendChild(script);
 						file.hasAlreadyBeenImportedAsJS = true;
 					}
