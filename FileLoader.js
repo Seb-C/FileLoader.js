@@ -293,6 +293,7 @@ window.FileLoader = (function() {
 				archives[absoluteFileName].files,
 				filter || /.*\.js$/,
 				function(file) {
+					if(!file.hasAlreadyBeenImportedAsJS) {
 						var script = document.createElement("script");
 						script.type = "text/javascript";
 						script.async = false;
