@@ -126,7 +126,7 @@ window.FileLoader = (function() {
 	 * URLs = "data:FileLoader.js,<archive url>,<file path in archive>"
 	 */
 	var fileLoaderUrlFormat = /data:FileLoader\.js,([^,]+),(.*)/;
-	var fileLoaderUrlFormatInCss = /^url\(["']*data:FileLoader\.js,([^,]+),(.*)["']*\)$/;
+	var fileLoaderUrlFormatInCss = /^url\(["']*data:FileLoader\.js,([^,]+),([^"']*)["']*\)$/;
 	
 	/**
 	 * List of HTML attributes that can be urls to replace with a document in the archive
